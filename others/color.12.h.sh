@@ -11,6 +11,10 @@ fi
 # List 140 named web colors.
 echo "🎨"
 echo "---"
+echo "@PIXNET 🅿️|color=BLUE"
+echo "PIXNET 藍 #006ac6         | color=#006ac6 bash=$0 param1=copy param2='#006ac6' refresh=false terminal=false"
+echo "styleMe 紅 #db4b8c        | color=#db4b8c bash=$0 param1=copy param2='#db4b8c' refresh=false terminal=false"
+echo "---"
 echo "RED 🍎|color=RED"
 echo "--#cd5c5c (205, 92, 92)   | color=#cd5c5c bash=$0 param1=copy param2='#cd5c5c' refresh=false terminal=false"
 echo "--#f08080 (240, 128, 128) | color=#f08080 bash=$0 param1=copy param2='#f08080' refresh=false terminal=false"
