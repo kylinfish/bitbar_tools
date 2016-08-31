@@ -9,6 +9,6 @@ ref. https://github.com/matryer/bitbar
   * 🇯🇵 jpy_tracker：日幣爬蟲
   
 * others
-  * ⏰ alerm: 鬧鐘
+  * ⏰ alarm: 鬧鐘
   * 📋 clipboard-history: 剪貼簿
   * 🎨 color: HTML 色碼錶
