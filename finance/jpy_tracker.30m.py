@@ -33,14 +33,12 @@ def curlCurrency(type, url):
     else:
         return float(soup.find_all('td', {'class': 'decimal'})[31].contents[0].strip())
 
-
 us_list = []
 for item in bank_list:
     try:
         us_list.append(curlCurrency(item[0], item[2]))
     except Exception as e:
         print "好像有哪個沒抓到"
-
 
 min_us = min(us_list)
 bank = bank_list[us_list.index(min_us)][1]
