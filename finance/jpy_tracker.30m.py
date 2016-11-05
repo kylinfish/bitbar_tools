@@ -16,7 +16,7 @@ bank_list = [
     ['FI', '第一', 'https://ibank.firstbank.com.tw/NetBank/7/0201.html?sh=none'],
     ['FE', '遠東', 'https://www.feib.com.tw/financialinfo/exchangerate03.aspx'],
     ['FU', '富邦', 'https://www.fubon.com/Fubon_Portal/banking/Personal/deposit/exchange_calculate/currency.jsp?currency1=TWD&currency2=JPY'],
-    ['TW', '台銀', 'http://rate.bot.com.tw/Pages/Static/UIP003.zh-TW.htm'],
+    ['TW', '台銀', 'http://rate.bot.com.tw/xrt?Lang=zh-TW'],
 ]
 
 def curlCurrency(type, url):
@@ -31,7 +31,7 @@ def curlCurrency(type, url):
     elif 'FU' == type:
         return float(soup.find('buy').contents[0].strip())
     else:
-        return float(soup.find_all('td', {'class': 'decimal'})[31].contents[0].strip())
+        return float(soup.find_all('tr')[9].find_all('td')[4].contents[0])
 
 us_list = []
 for item in bank_list:
