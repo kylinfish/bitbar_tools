@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import urllib2
+import urllib2, cookielib
 import time
 import os.path
 import sys
@@ -20,10 +20,20 @@ bank_list = [
 ]
 
 def curlCurrency(type, url):
-    result = urllib2.urlopen(url).read()
+    cookie_jar = cookielib.CookieJar()
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie_jar))
+    headers = {
+        'User-Agent':'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6'
+    }
+    request = urllib2.Request(
+        url = url,
+        headers = headers
+    )
+
+    result = opener.open(request)
     soup = BeautifulSoup(result)
     if 'CA' == type:
-        return float(soup.find_all('td', {'class': 't_align_right'})[27].contents[0])
+        return float(soup.find_all('tr')[27].find_all('td')[2].find_all('font')[0].contents[0])
     elif 'FI' == type:
         return float(soup.find_all('td', {'class': 'ListTitleFont'})[59].contents[0].strip())
     elif 'FE' == type:
